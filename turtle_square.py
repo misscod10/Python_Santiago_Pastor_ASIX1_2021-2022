@@ -5,6 +5,7 @@
 """
 import turtle
 import math
+costat=100
 tortuga = turtle.Pen()
 tortuga.color('red')
 tortuga.forward(100)
@@ -19,5 +20,5 @@ tortuga.color('blue')
 tortuga.forward(100)
 tortuga.left(135)
 tortuga.color('green')
-tortuga.forward(math.sqrt((100**2)+(100**2)))
+tortuga.forward(math.sqrt((costat**2)+(costat**2)))
 input()
