@@ -9,6 +9,7 @@ if len(sys.argv) < 3:
     quit()
 Entregat=float(sys.argv[1])
 Total_Ticket=float(sys.argv[2])
+
 print("Entregat: ", Entregat)
 print("Total ticket: ", Total_Ticket)
 A_Retornar=Entregat-Total_Ticket
