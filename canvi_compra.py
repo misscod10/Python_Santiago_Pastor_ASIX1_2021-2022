@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import sys
+#Missatge d'error si es donen menys arguments dels necessaris.
+if len(sys.argv) < 3:
+    print("     >>>   Has d'introduïr com a paràmetres l'import pagat i el valor del ticket.   <<<")
+    print("     >>>   Ex: python3 canvi_compra.py <pagat> <import del ticket>                  <<<")
+    print("     >>>   Torna-ho a provar                                                        <<<")
+    quit()
 Entregat=float(sys.argv[1])
 Total_Ticket=float(sys.argv[2])
 print("Entregat: ", Entregat)
