@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """
     turtle_square.py
     Demostració de l'ús de Turtle dibuixant un quadrat

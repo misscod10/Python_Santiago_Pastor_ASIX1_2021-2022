@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # Exercisi 1
 lista=[]
 suma_total=0
@@ -11,4 +11,4 @@ while True:
 print(lista)
 for i in lista():
     suma_total=+i
-print("El valor mitg és: ", (suma_total/len(lista))
+print("El valor mitg és: ", (suma_total/len(lista)))

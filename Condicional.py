@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 a=5
 b=78
 if a > b:

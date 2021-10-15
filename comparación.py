@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 a=input("Inserta el primer número: ")
 b=input("Inserta el segon número: ")
 if a > b:
