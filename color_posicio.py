@@ -33,7 +33,7 @@ elif columna=="h":
 else:
     print("Posició invàlida")
     exit
-if (fila % 2) == 0:
-    print(color_contrari)
-else:
+if (fila % 2) != 0:
     print(color)
+else:
+    print(color_contrari)
