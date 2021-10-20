@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 #Aquest programa en python ens serveix per calcular l'edat d'un gos en anys humans.
+__author__="Santiago Pastor Serrano"
 import sys
 if len(sys.argv) < 2:
     print("     >>>   Has d'introduïr com a paràmetre l'edat del gos   <<<")
