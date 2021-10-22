@@ -1,0 +1,19 @@
+Para hacer un doctest pon esto en la linea de comandos:
+python3 -m doctest -v factoritza.py 
+
+Si quieres que alguno de tus programas sean capaces de hacer un doctest:
+
+import doctest
+
+def main(input de la linea de comandos)
+    """
+    >>> main(input_de_prueba)
+    el resultado que deberia devolver
+    >>> main(input_de_prueba)
+    el resultado que deberia devolver
+    >>> main(input_de_prueba)
+    el resultado que deberia devolver
+    >>> main(input_de_prueba)
+    el resultado que deberia devolver
+    """
+    (El programa creado va abajo del test)
