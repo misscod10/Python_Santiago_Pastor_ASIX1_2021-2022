@@ -7,7 +7,7 @@
     $ python3 factoritza.py 12
     1, 2, 2, 3
 """
-
+'Comando para hacer test: python3 -m doctest -v factoritza.py '
 __author__ = "Xavi Quesada"  #-> Qui ha creat el programa.
 __editor__ = "Santi Pastor"
 import sys
