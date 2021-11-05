@@ -18,7 +18,7 @@ def main (clau_encriptar,frase_a_encriptar):
     abecedari= [
         ["a","b","c","d"],   ["e","f","g","h"],   ["i","j","k","l"],
         ["m","n","ñ","o"],   ["p","q","r","s"],   ["t","u","v","w"],
-        ["x","y","z"],       ["."," ","?","!"]
+        ["x","y","z"],       [","," ","?","!"]
     ]
     frase_al_reves=str(frase_a_encriptar[::-1].lower())
     frase_al_reves=list(frase_al_reves)
@@ -57,5 +57,8 @@ if __name__=='__main__':
         print("Exemple d'ús:")
         print("  $ python3 encriptacio.py '13213121' 'hola Mundo'")
         print("  ")
+        quit()
+    elif len(sys.argv[1]) > 8:
+        print("Es necesita una clau amb 8 dígits com a màxim")
         quit()
     main(sys.argv[1],sys.argv[2])
