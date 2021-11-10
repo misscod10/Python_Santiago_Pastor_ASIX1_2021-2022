@@ -5,7 +5,8 @@ __author__="Santiago Pastor Serrano"
 
 def main (inici,final,salt):
     if salt == 0:
-        raise
+        raise ValueError('El valor de salt no pot ser 0')
+        quit
     for index in range(inici,final,salt):
         print(index)
 
