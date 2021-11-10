@@ -1,16 +1,19 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
 import sys
 import doctest
 __author__="Santiago Pastor Serrano"
-
+"""
+Aquest programa ens permet fer comptes de números dintre d'un cert rang i saltant-nos les posicions
+"""
 def main (inici,final,salt):
     """
     >>> main(10,18,2)
-    ['10', '12', '14', '16','18']
+    ['10', '12', '14', '16']
     >>> main(10,17,2)
     ['10', '12', '14', '16']
     >>> main(18,10,-2)
-    ['18', '16', '14', '12','10']
+    ['18', '16', '14', '12']
     """
     resultat=[]
     if salt == 0:
