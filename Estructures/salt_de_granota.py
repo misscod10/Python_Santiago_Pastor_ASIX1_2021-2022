@@ -14,7 +14,7 @@ def main (inici,final,salt):
     """
     resultat=[]
     if salt == 0:
-        raise ValueError('El valor de salt no pot ser 0')
+        raise ValueError ('El valor de salt no pot ser 0')
         quit
     for index in range(inici,final,salt):
         resultat.append(str(index))
