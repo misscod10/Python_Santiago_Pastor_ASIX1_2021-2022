@@ -7,7 +7,7 @@ import random
 endevina.py tria un número a l'atzar entre l'1 i el 10 i l'usuari l'ha d'endevinar.
 """
 __author__   = "Santiago Pastor Serrano"
-__email__    = "f.javier.quesada@iesjoandaustria.org"
+__email__    = "cf19santiago.pastor@iesjoandaustria.org"
 __license__  = "GPL V3"
 
 def main(numero_secret):
@@ -19,9 +19,9 @@ def main(numero_secret):
     while True:
         suposicio_usuari = int(input("Quin número entre 1 i 10 he pensat? "))
         if suposicio_usuari < numero_secret:
-            print("El número secret és més gran que ", suposicio_usuari, " torna a intentar-ho!")
+            print("El número secret és més gran que ", suposicio_usuari, ", torna a intentar-ho!")
         elif suposicio_usuari > numero_secret:
-            print("El número secret és més petit que ", suposicio_usuari, " torna a intentar-ho!")
+            print("El número secret és més petit que ", suposicio_usuari, ", torna a intentar-ho!")
         elif suposicio_usuari == "":
             print("Sento que t'hagis donat per vençut tan ràpid, el número secret era el ", numero_secret)
             quit
