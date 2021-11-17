@@ -17,17 +17,19 @@ def main(numero_secret):
     es_endevinat = False
     suposicio_usuari = None
     while es_endevinat==False:
-        suposicio_usuari = int(input("Quin número entre 1 i 10 he pensat? "))
-        if suposicio_usuari < numero_secret:
-            print(f"El número secret és més gran que {suposicio_usuari}, torna a intentar-ho!")
-        elif suposicio_usuari > numero_secret:
-            print(f"El número secret és més petit que {suposicio_usuari}, torna a intentar-ho!")
-        elif suposicio_usuari == "":
+        suposicio_usuari = input("Quin número entre 1 i 10 he pensat? ")
+        if suposicio_usuari == "":
             print(f"Sento que t'hagis donat per vençut tan ràpid, el número secret era el {numero_secret}")
             es_endevinat=True
-        else:
-            print(f"Felicitats, l'has encertat era el {numero_secret}!!!")
-            es_endevinat=True
+        else:    
+            suposicio_usuari = int(suposicio_usuari)
+            if suposicio_usuari < numero_secret:
+                print(f"El número secret és més gran que {suposicio_usuari}, torna a intentar-ho!")
+            elif suposicio_usuari > numero_secret:
+                print(f"El número secret és més petit que {suposicio_usuari}, torna a intentar-ho!")
+            else:
+                print(f"Felicitats, l'has encertat era el {numero_secret}!!!")
+                es_endevinat=True
 
     
 
