@@ -44,4 +44,12 @@ def main(nombre_protagonista):
     return taula_result
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    try:
+        print(main( \
+            int( \
+                sys.argv[1] \
+            ) \
+        ))
+    except:
+        print("Mode d'ús:")
+        print("python3 taula_de_multiplicar.py <nombre_sencer>")
