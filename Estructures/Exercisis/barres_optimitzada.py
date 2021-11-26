@@ -24,7 +24,7 @@ def main(llista):
     os.system('clear')
     # El teu codi a partir d'aquí
     for i in llista:
-        print("*" * i ,i)
+        print(f'{"*"*i} {i}')
 if __name__ == "__main__":
     vector_valors = []
     for index in range(10):
