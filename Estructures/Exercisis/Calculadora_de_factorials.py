@@ -11,9 +11,12 @@ def main():
     numero_factorial=0
     if numero_a_factorizar<0:
         raise Exception ("No puc calcular el factorial de un número negatiu")
-    for i in range (1,numero_a_factorizar + 1):
-        if numero_factorial == 0:
-            numero_factorial = i
-        numero_factorial = numero_factorial * i
-    print(numero_factorial)
+    elif numero_a_factorizar== 0:
+        print(1)
+    else:
+        for i in range (1,numero_a_factorizar + 1):
+            if numero_factorial == 0:
+                numero_factorial = i
+            numero_factorial = numero_factorial * i
+        print(numero_factorial)
 main()
