@@ -1,0 +1,15 @@
+Pregunta 1.2. Error d'execució
+
+"""Suposa que en executar-ho et passa el següent
+$ python3 tresenordre.py
+Primer?
+un
+Traceback (most recent call last):
+ File "tresenordre.py", line 6, in <module>
+ a = int(input())
+ValueError: invalid literal for int() with base 10: 'un'
+"""
+Descriu què és el que ha passat i proposa alguna manera de solucionar-ho.
+
+L'usuari a introduït lletras quan el programa esperaba un número integer. Jo posaria un try en tot el programa i un except (per quan el valor introduït sigui incorrecte) amb un print on li explicaria a l'usuari que ha d'introduir un nombre enter.
+

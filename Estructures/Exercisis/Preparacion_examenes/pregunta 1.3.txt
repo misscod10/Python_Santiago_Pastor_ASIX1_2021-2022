@@ -1,0 +1,31 @@
+Test nr. 4: Error
+Entrada
+=======
+1
+3
+2
+Sortida esperada
+================
+Primer?
+Segon?
+Tercer?
+1, 2 i 3
+Sortida trobada
+===============
+Primer?
+Segon?
+Tercer?
+1, 3 i 2
+Diferència
+==========
+4c4
+< 1, 2 i 3
+---
+> 1, 3 i 2
+
+
+Descriu quin seria el problema. Indica el número de la línia o línies implicades, i explica perquè la
+solució que proses a l'apartat anterior no presentaria aquest problema.
+Contesta al costat de la sortida en aquest mateix full.
+L'error es que quan detecta que b es mes gran que a i c els esta posat que l'ordre ha de ser abc quan hauria de ser acb (1 3 i 2 )
+En el meu programa no tindtia aquest error ja que en la meva linea 15 l'ordre seria acb.
