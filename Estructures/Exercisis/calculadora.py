@@ -44,6 +44,8 @@ def main (num1,operador,num2):
                 num1=num1*i
                 Resultat=num1
             print(Resultat)
+        else:
+            print("El operador introduït encara no esta programat en la calculadora prova amb + , * , ** , ! , / o -")
         
     except ValueError:
         print("Els números a operar han de ser enters")
@@ -51,10 +53,3 @@ def main (num1,operador,num2):
         print("A l'hora de fer una divisió cap dels dos números poden ser 0")
 if __name__ == "__main__":
     main(int(sys.argv[1]), sys.argv[2],int(sys.argv[3]))
-
-
-
-
-
-
-"""-*/**!"""   
