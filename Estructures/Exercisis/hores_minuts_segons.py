@@ -14,9 +14,9 @@ def main(segons):
     >>> main(3727)
     (1, 2, 7)
     """
-    minuts=seg // 60
+    minuts=segons // 60
     hores= minuts // 60
-    segons= seg - minuts*60
+    segons= segons - minuts*60
     minuts= minuts - hores*60
     return hores, minuts, segons
 
