@@ -11,7 +11,15 @@ import sys
 >>> main(20, / ,5)
 4.0
 >>> main(5, * ,5)
-25.0
+25
+>>> main(5, + ,5)
+10
+>>> main(5, ! ,5)
+120
+>>> main(5, ** ,5)
+3125
+>>> main(5, - ,5)
+0
 """
 
 def main (num1,operador,num2):
@@ -32,9 +40,9 @@ def main (num1,operador,num2):
             Resultat = num1 ** num2
             print(Resultat)
         elif operador == "!":
-            for i in (1,num1+1):
+            for i in range(1,num1):
                 num1=num1*i
-            Resultat=num1
+                Resultat=num1
             print(Resultat)
         
     except ValueError:
