@@ -3,7 +3,7 @@
 import qrcode
 import json
 """
-Un programa que crea un menu en el terminal
+Un programa que crea un menu en el terminal i et permet crear un codi qr basant-se en la informació que li dones.
 """
 __author__   = "Santiago Pastor Serrano"
 __email__    = "cf19santiago.pastor@iesjoandaustria.org"
@@ -29,7 +29,7 @@ def main():
             input("Continua... ")
         elif opcio=="3":
             text=json.dumps(magatzem, indent=4)
-            path= '/home/cf19santiago/Python_Santiago_Pastor_ASIX1_2021-2022/Estructures/Exercisis/qrs/qr.png'
+            path= '/tmp/qr.png'
             img = qrcode.make(text)
             img.save(path)
         else:
