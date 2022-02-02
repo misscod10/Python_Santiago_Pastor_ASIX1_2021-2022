@@ -8,6 +8,6 @@ __author__   = "Santiago Pastor Serrano"
 __email__    = "cf19santiago.pastor@iesjoandaustria.org"
 __license__  = "GPL V3"
 data='Amobus'
-path= '/home/cf19santiago/Python_Santiago_Pastor_ASIX1_2021-2022/Estructures/Exercisis/qrs/qr.png'
+path= '/tmp/qr.png'
 img = qrcode.make(data)
 img.save(path)
