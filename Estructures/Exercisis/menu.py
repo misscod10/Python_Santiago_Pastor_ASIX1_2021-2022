@@ -28,8 +28,9 @@ def main():
             print(magatzem)
             input("Continua... ")
         elif opcio=="3":
+            text=json.dumps(magatzem, indent=4)
             path= '/home/cf19santiago/Python_Santiago_Pastor_ASIX1_2021-2022/Estructures/Exercisis/qrs/qr.png'
-            img = qrcode.make(magatzem)
+            img = qrcode.make(text)
             img.save(path)
         else:
             print("Opcio incorrecta!")
