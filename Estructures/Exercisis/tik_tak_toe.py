@@ -23,7 +23,7 @@ def dibuixa_taulell(board):
     representacio_taulell=representar(board,simbols)
     return representacio_taulell
 def representar(board,simbols):
-    representació=""
+    representacio=""
     for i in board:
         for x in board[i]:
             representacio= representacio + (f"|{simbols[x]}|")
