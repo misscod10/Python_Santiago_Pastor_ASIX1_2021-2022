@@ -29,8 +29,6 @@ def representar(board,simbols):
             representacio= representacio + (f"{simbols[x]}|")
         representacio= representacio +("\n")
     return representacio
-            
-
         
 
 def comproba_guanyador(taulell):
