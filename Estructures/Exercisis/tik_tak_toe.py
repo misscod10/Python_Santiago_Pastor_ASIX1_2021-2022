@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # _*_ coding: utf-8 _*_
+from fileinput import close
 import random, os, functools
 
 """
@@ -20,16 +21,14 @@ def dibuixa_taulell(board):
     """
     representacio_taulell = ""
     simbols = [" ", "X", "O"] 
-    representacio_taulell=representar(board,simbols)
-    return representacio_taulell
-def representar(board,simbols):
-    representacio="|"
-    for i in board:
+    for i in range(0,3):
+        representacio_taulell= representacio_taulell +("|")
         for x in board[i]:
-            representacio= representacio + (f"{simbols[x]}|")
-        representacio= representacio +("\n")
-    return representacio
-        
+            representacio_taulell= representacio_taulell + (f"{simbols[x]}|")
+        representacio_taulell= representacio_taulell +("\n")
+    return representacio_taulell
+
+
 
 def comproba_guanyador(taulell):
     """
@@ -57,8 +56,57 @@ def comproba_guanyador(taulell):
     >>> print(comproba_guanyador([[0,0,0],[0,0,0],[1,2,0]]))
     <BLANKLINE>
     """
-    # TODO implementar funcio
-    return "Ha guanyat el jugador 3"    
+    diagonal1=[taulell[0][0],taulell[1][1],taulell[2][2]]
+    diagonal2=[taulell[0][2],taulell[1][1],taulell[2][0]]
+    guanyador_lineas=comprobar_líneas(taulell)
+    guanyador_columnas=comprobar_columnas(taulell)
+    guanyador_diagonal1=comprobar_diagonal(diagonal1,taulell)
+    guanyador_diagonal2=comprobar_diagonal(diagonal2,taulell)
+
+    if guanyador_lineas!=None:
+        return (f"Ha guanyat el jugador {guanyador_lineas}")
+    if guanyador_columnas!=None:
+        return (f"Ha guanyat el jugador {guanyador_columnas}")
+    if guanyador_diagonal1 !=None:
+        return (f"Ha guanyat el jugador {guanyador_diagonal1}")
+    if guanyador_diagonal2 !=None:
+        return (f"Ha guanyat el jugador {guanyador_diagonal2}")
+    return ""
+ 
+def comprobar_líneas(taulell):
+    for i in range(0,3):
+        linea=taulell[i]
+        if linea==[1,1,1]:
+            guanyador="1"
+            break
+        elif linea==[2,2,2]:
+            guanyador="2"
+            break
+        else:
+            guanyador=None
+    return guanyador
+
+def comprobar_columnas(taulell):
+    for i in range(0,3):
+        columna=[taulell[0][i],taulell[1][i],taulell[2][i]]
+        if columna==[1,1,1]:
+            guanyador="1"
+            break
+        elif columna==[2,2,2]:
+            guanyador="2"
+            break
+        else:
+            guanyador=None    
+    return guanyador
+
+def comprobar_diagonal(diagonal,taulell):
+    if diagonal==[1,1,1]:
+        guanyador="1"
+    elif diagonal==[2,2,2]:
+        guanyador="2"
+    else:
+        guanyador=None
+    return guanyador
     
 def main(taulell):
     """
@@ -108,6 +156,7 @@ def main(taulell):
     resultat = dibuixa_taulell(taulell)
     resultat = resultat + comproba_guanyador(taulell)
     return resultat
+    print(resultat)
     
 
 if __name__=="__main__":
