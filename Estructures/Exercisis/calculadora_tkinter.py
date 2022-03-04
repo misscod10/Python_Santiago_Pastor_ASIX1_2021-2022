@@ -146,8 +146,8 @@ boto_igual = tkinter.Button(finestra,
                     pady=50,
                     command=lambda : icono_igual())
 boto_vaciar = tkinter.Button(finestra,
-                    text="C",
-                    padx=50,
+                    text="Clear",
+                    padx=160,
                     pady=50,
                     command=lambda : vaciar())
              
@@ -171,6 +171,6 @@ boto_multiplicacio.grid(row=5, column=0)
 boto_divisio.grid(row=5, column=1)
 boto_igual.grid(row=5, column=2)
 
-boto_vaciar.grid(row=6, column=0)
+boto_vaciar.grid(row=6, column=0, columnspan=3)
 
 finestra.mainloop()
