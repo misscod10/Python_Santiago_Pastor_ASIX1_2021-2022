@@ -11,6 +11,7 @@ __license__  = "GPL V3"
 import tkinter
 valor_en_pantalla = 0
 valor_acumulado = 0
+operacio=""
 def click_boto_digit(digit):
     global valor_en_pantalla
     valor_en_pantalla *= 10
@@ -18,17 +19,48 @@ def click_boto_digit(digit):
 
     entrada.delete(0, tkinter.END)
     entrada.insert(0, f"{valor_en_pantalla}")
-    print(f"He fet click al boto  {digit} !!!")
+
+def vaciar():
+    entrada.delete(0, tkinter.END)
+    entrada.insert(0, 0)
 
 def icono_sumar():
-    global valor_en_pantalla, valor_acumulado
+    global valor_en_pantalla, valor_acumulado, operacio
     valor_acumulado=valor_en_pantalla
     valor_en_pantalla=0
-    return valor_en_pantalla, valor_acumulado
+    operacio="+"
+    
+def icono_restar():
+    global valor_en_pantalla, valor_acumulado, operacio
+    valor_acumulado=valor_en_pantalla
+    valor_en_pantalla=0
+    operacio="-"
+
+def icono_multiplicar():
+    global valor_en_pantalla, valor_acumulado, operacio
+    valor_acumulado=valor_en_pantalla
+    valor_en_pantalla=0
+    operacio="*"
+
+def icono_dividir():
+    global valor_en_pantalla, valor_acumulado, operacio
+    valor_acumulado=valor_en_pantalla
+    valor_en_pantalla=0
+    operacio="/"
+
 def icono_igual():
-    global valor_en_pantalla, valor_acumulado
-    valor_final=valor_en_pantalla+valor_acumulado
-    return valor_final
+    global valor_en_pantalla, valor_acumulado, operacio
+    if operacio=="+":
+        valor_en_pantalla=valor_en_pantalla+valor_acumulado
+    elif operacio=="-":
+        valor_en_pantalla=valor_acumulado-valor_en_pantalla
+    elif operacio=="/":
+        valor_en_pantalla=valor_acumulado/valor_en_pantalla
+    elif operacio=="*":
+        valor_en_pantalla=valor_en_pantalla*valor_acumulado
+    entrada.delete(0, tkinter.END)
+    entrada.insert(0, f"{valor_en_pantalla}")
+
 finestra = tkinter.Tk()
 
 entrada = tkinter.Entry(finestra, width=50)
@@ -50,7 +82,6 @@ boto_03 = tkinter.Button(finestra,
                     padx=50, 
                     pady=50,
                     command=lambda : click_boto_digit(3))
-
 boto_04 = tkinter.Button(finestra, 
                     text="4", 
                     padx=50, 
@@ -90,12 +121,32 @@ boto_suma = tkinter.Button(finestra,
                     text="+", 
                     padx=50, 
                     pady=50,
-                    command=lambda : valor_en_pantalla, valor_acumulado = icono_sumar)
+                    command=lambda : icono_sumar())
+boto_resta = tkinter.Button(finestra, 
+                    text="-", 
+                    padx=50, 
+                    pady=50,
+                    command=lambda : icono_restar())
+boto_multiplicacio = tkinter.Button(finestra, 
+                    text="*", 
+                    padx=50, 
+                    pady=50,
+                    command=lambda : icono_multiplicar())
+boto_divisio = tkinter.Button(finestra, 
+                    text="/", 
+                    padx=50, 
+                    pady=50,
+                    command=lambda : icono_dividir())
 boto_igual = tkinter.Button(finestra, 
                     text="=", 
                     padx=50, 
                     pady=50,
-                    command=lambda : icono_igual)
+                    command=lambda : icono_igual())
+boto_vaciar = tkinter.Button(finestra,
+                    text="C",
+                    padx=50,
+                    pady=50,
+                    command=lambda : vaciar())
              
 boto_01.grid(row=1, column=0)
 boto_02.grid(row=1, column=1)
@@ -111,6 +162,12 @@ boto_09.grid(row=3, column=2)
 
 boto_00.grid(row=4, column=0)
 boto_suma.grid(row=4, column=1)
-boto_igual.grid(row=4, column=2)
+boto_resta.grid(row=4, column=2)
+
+boto_multiplicacio.grid(row=5, column=0)
+boto_divisio.grid(row=5, column=1)
+boto_igual.grid(row=5, column=2)
+
+boto_vaciar.grid(row=6, column=0)
 
 finestra.mainloop()
