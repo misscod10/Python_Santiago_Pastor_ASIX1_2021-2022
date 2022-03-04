@@ -21,9 +21,12 @@ def click_boto_digit(digit):
     entrada.insert(0, f"{valor_en_pantalla}")
 
 def vaciar():
+    global valor_en_pantalla, valor_acumulado
     entrada.delete(0, tkinter.END)
     entrada.insert(0, 0)
-
+    valor_en_pantalla=0
+    valor_acumulado=0
+    
 def icono_sumar():
     global valor_en_pantalla, valor_acumulado, operacio
     valor_acumulado=valor_en_pantalla
