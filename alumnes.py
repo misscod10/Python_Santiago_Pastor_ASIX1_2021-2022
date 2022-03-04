@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 # _*_ coding: utf-8 _*_
 
+__author__=Santiago Pastor Serrano
+__email__= cf19santiago.pastor@iesjoandaustria.org
+__license__= GPL3_VL
+
 alumnes = [{"nom":"Marcel", "cognom_1":"Garcia"}, \
     {"nom":"Marina", "cognom_1":"Cullell"}, \
     {"nom":"Mario",  "cognom_1":"Vizuete"}, \ 
