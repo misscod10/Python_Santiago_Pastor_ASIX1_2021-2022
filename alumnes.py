@@ -7,7 +7,7 @@ __license__= GPL3_VL
 
 alumnes = [{"nom":"Marcel", "cognom_1":"Garcia"}, \
     {"nom":"Marina", "cognom_1":"Cullell"}, \
-    {"nom":"Mario",  "cognom_1":"Vizuete"}, \ 
+    {"nom":"Mario",  "cognom_1":"Vizuete"}, \
     {"nom":"Antoni", "cognom_1":"Valent"}, \
     {"nom":"Annabel","cognom_1":"Segura"}, \
     {"nom":"Loulou", "cognom_1":"Nadal"} \
