@@ -12,6 +12,7 @@ import tkinter
 valor_en_pantalla = 0
 valor_acumulado = 0
 operacio=""
+
 def click_boto_digit(digit):
     global valor_en_pantalla
     valor_en_pantalla *= 10
