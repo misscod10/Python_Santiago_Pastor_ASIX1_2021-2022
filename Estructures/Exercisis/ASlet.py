@@ -6,28 +6,7 @@ __email__="cf19santiago.pastor@iesjoandaustria.org"
 import os
 import sys
 """
-heu de programar una aplicació que mostri el següent menu:
-
-0. Sortir de la aplicació
-
-1. Entrar paraula secreta
-
-2. Endevinar paraula secreta
-
-Amb entrar paraula secreta la aplicació demanarà una paraula de 5 lletres i ha de comprovar que la paraula és de 5 lletres, ni menys ni més.
-Desprès de demanar la paraula ha d'esborrar la terminal per a que no es vegi quina paraula hem proporcionat.
-Un cop que tenim la paraula secreta si triem la opció 2 (Endevinar paraula secreta), li demanarem al usuari que endevini la paraula secreta.
-Si la paraula introduïda per l'usuari té més de 5 o menys de 5 lletres, li hem de recordar que ha d'introduïr paraules de exactament 5 lletress.
-Si la paraula introduïda és la paraula secreta li hem de comunicar que l'ha endevinat.
-En altre cas, has de mostrar la paraula introduïda per l'usuari i just a sota d'aquesta paraula heu de escriure 5 símbols, un per cada lletra:
-V si la lletra que coincideix en posició coincideix amb la de la paraula secreta.
-X si la lletra que coincideix en posició no es troba a la paraula secreta.
-O si la lletra que coincideix en posició és a la paraula secreta, però no en aquella posició.
-Exemple:
-Si la paraula secreta és: GRUTA i l'usuari entra GATET, el programa ha d'escriure:
-
-G A T E T
-V O O X O
+Aquest programa et permet introduir una paraula i després fa que la adivinis.
 """
 def main():
     opcio=None
@@ -42,6 +21,10 @@ def mostrar_menu():
     print("0. Sortir de la aplicació \n1. Entrar paraula secreta\n2. Endevinar paraula secreta")
 
 def entrar_paraula_secreta():
+    """
+    Aquesta funció fa un input amb la paraula secreta que anem a utilitzar i comprova que sigi de 5 lletres, si no ho és et torna a demanar l'input. 
+    Si si que te 5 lletres esborra la pantalla amb un clear(en linux) i retorna la paraula introduïda
+    """
     correcto=0
     while correcto==0:
         paraula_posible=input("Introdueix la paraula secreta: ")
@@ -54,6 +37,11 @@ def entrar_paraula_secreta():
     return paraula_secreta
 
 def endevinar_paraula(paraula_secreta):
+    """
+    Aquesta funció et demana un input per introduir una paraila per després comprobar que has encertat la paraula secreta, si es que sí t'ho diu per pantalla i et retorna al menú. 
+    Si es que no comproba cada lletra per saber si esta o no en la paraula secreta,si està comprova si esta en la mateixa posicio o no. Després ho representa amb símbols 
+    i imprimeix per pantalla tant la paraula com els simbols i et demana tornar a intentar-lo.
+    """
     correcto=0
     while correcto==0:
         representació_símbols=("")
