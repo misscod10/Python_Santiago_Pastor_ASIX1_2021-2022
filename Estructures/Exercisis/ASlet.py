@@ -4,7 +4,6 @@ __author__="Santiago Pastor Serrano"
 __email__="cf19santiago.pastor@iesjoandaustria.org"
 
 import os
-import sys
 """
 Aquest programa et permet introduir una paraula i després fa que la adivinis.
 """
@@ -40,16 +39,15 @@ def endevinar_paraula(paraula_secreta):
     """
     Aquesta funció et demana un input per introduir una paraila per després comprobar que has encertat la paraula secreta, si es que sí t'ho diu per pantalla i et retorna al menú. 
     Si es que no comproba cada lletra per saber si esta o no en la paraula secreta,si està comprova si esta en la mateixa posicio o no. Després ho representa amb símbols 
-    i imprimeix per pantalla tant la paraula com els simbols i et demana tornar a intentar-lo.
+    i imprimeix per pantalla tant la paraula com els simbols i et demana tornar a intentar-lo i et diu quants intents et queden.
     """
-    correcto=0
-    while correcto==0:
+    for a in range(0,5):
         representació_símbols=("")
         paraula_posible=input("Introdueix la paraula que creus que és la paraula secreta: ")
         if len(paraula_posible)==5:
             if paraula_posible==paraula_secreta:
                 print("\nHas encertat la paraula!\n")
-                correcto=1
+                break
             else:
                 for z in range(len(paraula_secreta)):
                     if paraula_posible[z] in paraula_secreta:
@@ -61,6 +59,7 @@ def endevinar_paraula(paraula_secreta):
                         representació_símbols=representació_símbols+("X")
                 print(paraula_posible)
                 print(representació_símbols)
+                print(f"Et queden {5-(a+1)} intents.\n")
         else:
             print("La paraula ha de ser de, com a minim, 5 lletres!\n")
 if __name__=="__main__":
