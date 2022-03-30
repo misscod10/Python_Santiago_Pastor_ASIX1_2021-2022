@@ -54,6 +54,8 @@ def genera_carta(n, pal, simbolos):
     "| " + simbolos[pal] + " |", 
     "|"+ n.rjust(3,"_")+"|" 
     ]  
+    for linea in carta_generada:
+        print(linea)
     return carta_generada
 
 if __name__=="__main__":
