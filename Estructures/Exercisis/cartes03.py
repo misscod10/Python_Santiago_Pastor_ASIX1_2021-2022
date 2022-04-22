@@ -1,54 +1,25 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
+import os
 import doctest
 import random
 __author__="Santiago Pastor Serrano"
 COLUMNAS=13
 def main():
     simbolos={"cor":"\U00002665","diamant":"\U000025C6","pica":"\U00002660","trevol":"\U00002663"}
-    ma=[]
     pal=["cor","diamant","pica","trevol"]
-    n="Q"
-    pq = [ 
-    " ___ ", 
-    "|Q  |", 
-    "| " + simbolos["pica"] + " |", 
-    "|__Q|" 
-    ]
-
-    As = [ 
-    " ___ ", 
-    "|A  |", 
-    "| " + simbolos["cor"] + " |", 
-    "|__A|" 
-    ]
-    
-    ut = [ 
-    " ___ ", 
-    "|1  |", 
-    "| " + simbolos["trevol"] + " |", 
-    "|__1|" 
-    ]
-
-    cd = [ 
-    " ___ ", 
-    "|5  |", 
-    "| " + simbolos["diamant"] + " |", 
-    "|__5|" 
-    ]
-    carta_generada=genera_carta(n,pal[1],simbolos) 
     baralla=genera_baralla(pal,simbolos)
-    ma=crear_mano(baralla)
-    imprimir_mano(ma)
-    valors=get_valors_ma(ma)
-    print(valors)
+    baralla=especial(baralla) 
+    imprimir_menu(baralla)
+
+
 def imprimir_mano(ma):
     if len(ma)>COLUMNAS:
         imprimir_mano(ma[:-COLUMNAS])
     for indice in range(4):
         linea=""
         for carta in ma[-COLUMNAS:]:
-            linea+= carta[indice]
+            linea+=carta[indice]
         print(linea)
 
 
@@ -117,8 +88,8 @@ def especial(baralla):
 
 def crear_mano(baralla):
     mano=[]
-    for a in range (4):
-        carta=baralla[random.randint(0,len(baralla)-1)]
+    for a in range (2):
+        carta=baralla.pop()
         mano.append(carta)
     return mano
 
@@ -164,6 +135,38 @@ def suma_valors_ma(valors):
         suma=sum(valors)
         return suma
     return suma
+
+
+def imprimir_menu(baralla):
+    opciones={"1":"Demana","2":"Plantarse","3":"Reinicia"}
+    respuesta=None
+    ma=crear_mano(baralla)
+    while respuesta != 0:
+        imprimir_mano(ma)
+        valors=get_valors_ma(ma)
+        print(valors)
+        respuesta=input("0. Sortir\n1. Demanar més cartes\n2. Plantarse\n3. Reinicia el joc")
+        if opciones[respuesta]=="Demana":
+            demanar_carta(ma,valors,baralla)
+        if opciones[respuesta]=="Plantarse":
+            plantarse(valors)
+        if opciones[respuesta]=="Reinicia":
+            os.system("clear")
+            ma=crear_mano(baralla)
+    print("Sortint del programa...")
+
+
+def demanar_carta(ma,valors,baralla):
+    if valors<21:
+        ma.append(baralla.pop())
+    else:
+        print("No és poden demanar més cartes!")
+    return ma
+
+
+def plantarse(valors):
+       print("Aqui juga la màquina.")
+
 
 if __name__=="__main__":
     main()
