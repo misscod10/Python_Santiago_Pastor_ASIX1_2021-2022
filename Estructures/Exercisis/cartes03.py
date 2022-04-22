@@ -138,22 +138,24 @@ def suma_valors_ma(valors):
 
 
 def imprimir_menu(baralla):
-    opciones={"1":"Demana","2":"Plantarse","3":"Reinicia"}
+    opciones={"0":"Sortir","1":"Demana","2":"Plantarse","3":"Reinicia"}
     respuesta=None
     ma=crear_mano(baralla)
-    while respuesta != 0:
+    while respuesta != "0":
         imprimir_mano(ma)
         valors=get_valors_ma(ma)
         print(valors)
-        respuesta=input("0. Sortir\n1. Demanar més cartes\n2. Plantarse\n3. Reinicia el joc")
+        respuesta=input("\n0. Sortir\n1. Demanar més cartes\n2. Plantarse\n3. Reinicia el joc\n\n")
         if opciones[respuesta]=="Demana":
+            os.system("clear")
             demanar_carta(ma,valors,baralla)
         if opciones[respuesta]=="Plantarse":
+            os.system("clear")
             plantarse(valors)
         if opciones[respuesta]=="Reinicia":
             os.system("clear")
             ma=crear_mano(baralla)
-    print("Sortint del programa...")
+    print("\nSortint del programa...\n")
 
 
 def demanar_carta(ma,valors,baralla):
