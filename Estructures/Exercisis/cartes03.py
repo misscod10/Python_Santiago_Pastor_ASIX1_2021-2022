@@ -5,6 +5,8 @@ import doctest
 import random
 __author__="Santiago Pastor Serrano"
 COLUMNAS=13
+
+
 def main():
     simbolos={"cor":"\U00002665","diamant":"\U000025C6","pica":"\U00002660","trevol":"\U00002663"}
     pal=["cor","diamant","pica","trevol"]
@@ -166,6 +168,11 @@ def demanar_carta(ma,valors,baralla):
 
 def plantarse(valors):
        print("Aqui juga la màquina.")
+
+
+def banca(baralla):
+    return None    
+
 
 
 if __name__=="__main__":
