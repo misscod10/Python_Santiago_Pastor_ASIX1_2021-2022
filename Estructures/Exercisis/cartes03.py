@@ -15,6 +15,7 @@ def main():
     imprimir_menu(baralla)
 
 
+
 def imprimir_mano(ma):
     if len(ma)>COLUMNAS:
         imprimir_mano(ma[:-COLUMNAS])
@@ -88,12 +89,6 @@ def especial(baralla):
     return resultat
 
 
-def crear_mano(baralla):
-    mano=[]
-    for a in range (2):
-        carta=baralla.pop()
-        mano.append(carta)
-    return mano
 
 def get_valor_carta(carta):
     valor=carta[1].strip("|")
@@ -142,21 +137,26 @@ def suma_valors_ma(valors):
 def imprimir_menu(baralla):
     opciones={"0":"Sortir","1":"Demana","2":"Plantarse","3":"Reinicia"}
     respuesta=None
-    ma=crear_mano(baralla)
+    ma=[] 
+    guanyador=None
     while respuesta != "0":
+        if respuesta=="3":
+            guanyador=None
         imprimir_mano(ma)
         valors=get_valors_ma(ma)
         print(valors)
+        if guanyador !=None:
+            escollir_guanyador(guanyador)
         respuesta=input("\n0. Sortir\n1. Demanar més cartes\n2. Plantarse\n3. Reinicia el joc\n\n")
         if opciones[respuesta]=="Demana":
             os.system("clear")
             demanar_carta(ma,valors,baralla)
         if opciones[respuesta]=="Plantarse":
-            os.system("clear")
-            plantarse(valors)
+            os.system("clear") 
+            guanyador=plantarse(valors,baralla)
         if opciones[respuesta]=="Reinicia":
             os.system("clear")
-            ma=crear_mano(baralla)
+            ma=[]
     print("\nSortint del programa...\n")
 
 
@@ -168,14 +168,42 @@ def demanar_carta(ma,valors,baralla):
     return ma
 
 
-def plantarse(valors):
-       print("Aqui juga la màquina.")
+def plantarse(valors,baralla):
+   #Maquina=1 Jugador=0 
+    if valors==21:
+        guanyador=0
+        return guanyador
+    ma_maquina,valors_maquina=banca(baralla)
+    imprimir_mano(ma_maquina)
+    print(valors_maquina)
+    if valors>21:
+        guanyador=1
+        return guanyador
+    if valors_maquina>21:
+        guanyador=0
+        return guanyador
+    else:
+        if valors_maquina > valors:
+            guanyador=1
+            return guanyador
+        if valors > valors_maquina:
+            guanyador=0
+            return guanyador
 
 
 def banca(baralla):
-    return None    
+    ma=[]
+    valors=0
+    while valors < 17:
+        ma=(demanar_carta(ma,valors,baralla))
+        valors=get_valors_ma(ma)
+    return ma, valors
 
-
+def escollir_guanyador(guanyador):
+    if guanyador==0:
+        print("\nHas guanyat!\nFelicitats")
+    else:
+        print("Guanya la Banca!")
 
 if __name__=="__main__":
     main()
