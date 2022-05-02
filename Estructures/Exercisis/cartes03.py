@@ -173,6 +173,9 @@ def plantarse(valors,baralla):
     if valors==21:
         guanyador=0
         return guanyador
+    if valors>21:
+        guanyador=1
+        return guanyador
     ma_maquina,valors_maquina=banca(baralla)
     imprimir_mano(ma_maquina)
     print(valors_maquina)
