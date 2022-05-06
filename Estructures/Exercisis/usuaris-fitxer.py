@@ -1,16 +1,31 @@
-#!/bin/python3
+#!/usr/bin/python3
+# _*_ coding: utf-8 _*_
 import os, pandas
-__author__="Santiago Pastor Serrano"
+from textwrap import indent
 
+from pandas.core import indexing
+
+__author__="Santiago Pastor Serrano"
+__email__="cf19santiago.pastor@iesjoandaustria.org"
 PATH_DADES = "./dades.csv"
+
+"""
+Aquest programa imprimeix un menú amb les opcions per sortir del programa, escriure en un archiu .csv els usuaris amb les seves dades i imprimir per pantalla una taula amb les dades inscrites en l'archiu.
+"""
 
 
 def main():
     option=None
+    noms=[]
+    cognoms=[]
+    dni=[]
+    neixement=[]
+    telefon=[]
+
     while option !=0:
         if option != None:
             os.system("clear")  
-            choose(option)
+            choose(option, noms, cognoms, dni, neixement, telefon)
         option=print_menu()
     print("Sortint del programa ...")
     
@@ -20,26 +35,22 @@ def print_menu():
     return option
 
 
-def choose(option):
+def choose(option, noms, cognoms, dni, neixement, telefon):
     options={0:"Sortir",1:"Introduir",2:"Mostrar"}
     if options[option]=="Introduir":
-        escriptura()
+        noms, cognoms, dni, neixement, telefon=escriptura(noms, cognoms, dni, neixement, telefon)
     if options[option]=="Mostrar":
         mostrar()
     if options[option]=="Sortir":
         pass
     else:
-        print("Escogeix una opció vàlida")
+        print("\nEscogeix una opció vàlida")
 
 
-def escriptura():
-    global PATH_DADES
-    noms=[]
-    cognoms=[]
-    dni=[]
-    neixement=[]
-    telefon=[]
+def escriptura(noms,cognoms,dni,neixement,telefon):
+    global PATH_DADES 
     quants=int(input("Quants usuaris vol afegir? \n"))
+    os.system("clear")
     for i in range(quants):
         print("------------------------------------------------------")
         noms.append(input("Nom de l'usuari: "))
@@ -50,12 +61,15 @@ def escriptura():
          
     dades={"Noms":noms, "Cognoms":cognoms, "DNI":dni, "Neixement":neixement, "Telefon":telefon}
     document= pandas.DataFrame(dades, columns=["Noms","Cognoms","DNI","Neixement","Telefon"])
-    document.to_csv(PATH_DADES)
+    document.to_csv(PATH_DADES, index=False)
+    return  noms, cognoms, dni, neixement, telefon
+
 
 def mostrar():
     global PATH_DADES
     archivo=pandas.read_csv(PATH_DADES)
     print(archivo)
+
 
 if __name__=="__main__":
     main()
