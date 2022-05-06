@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 # _*_ coding: utf-8 _*_
 import os, pandas
-from textwrap import indent
-
-from pandas.core import indexing
 
 __author__="Santiago Pastor Serrano"
 __email__="cf19santiago.pastor@iesjoandaustria.org"
@@ -11,6 +8,7 @@ PATH_DADES = "./dades.csv"
 
 """
 Aquest programa imprimeix un menú amb les opcions per sortir del programa, escriure en un archiu .csv els usuaris amb les seves dades i imprimir per pantalla una taula amb les dades inscrites en l'archiu.
+He escollit utilitzar un archiu .csv perqué hem sembla el més 'Natural' per guardar aquestos tipus de dades i perqué vaig descobrir la llibreria pandas que m'ho imprimia d'una manera més estètica.
 """
 
 
@@ -43,8 +41,6 @@ def choose(option, noms, cognoms, dni, neixement, telefon):
         mostrar()
     if options[option]=="Sortir":
         pass
-    else:
-        print("\nEscogeix una opció vàlida")
 
 
 def escriptura(noms,cognoms,dni,neixement,telefon):
@@ -53,14 +49,23 @@ def escriptura(noms,cognoms,dni,neixement,telefon):
     os.system("clear")
     for i in range(quants):
         print("------------------------------------------------------")
-        noms.append(input("Nom de l'usuari: "))
-        cognoms.append(input("Cognoms de l'usuari: "))
-        dni.append(input("DNI de l'usuari: "))
-        neixement.append(input("Data de neixement de l'usuari: "))
-        telefon.append(input("Telefon de l'usuari: "))
+        dni_user=input("DNI de l'usuari: ")
+        if dni_user in dni:
+            print("\nJa hi ha un usuari amb el mateix DNI, sobrescribint sobreescriure les dades de l'usuari...\n")
+            dni[dni.index(dni_user)]=dni_user
+            noms[dni.index(dni_user)]=input("Nom de l'usuari: ")
+            cognoms[dni.index(dni_user)]=input("Cognoms de l'usuari: ")
+            neixement[dni.index(dni_user)]=input("Data de neixement de l'usuari: ")
+            telefon[dni.index(dni_user)]=input("Telefon de l'usuari: ")
+        else:
+            dni.append(dni_user)
+            noms.append(input("Nom de l'usuari: "))
+            cognoms.append(input("Cognoms de l'usuari: ")) 
+            neixement.append(input("Data de neixement de l'usuari: "))
+            telefon.append(input("Telefon de l'usuari: "))
          
     dades={"Noms":noms, "Cognoms":cognoms, "DNI":dni, "Neixement":neixement, "Telefon":telefon}
-    document= pandas.DataFrame(dades, columns=["Noms","Cognoms","DNI","Neixement","Telefon"])
+    document= pandas.DataFrame(dades)
     document.to_csv(PATH_DADES, index=False)
     return  noms, cognoms, dni, neixement, telefon
 
