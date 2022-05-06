@@ -51,7 +51,7 @@ def escriptura(noms,cognoms,dni,neixement,telefon):
         print("------------------------------------------------------")
         dni_user=input("DNI de l'usuari: ")
         if dni_user in dni:
-            print("\nJa hi ha un usuari amb el mateix DNI, sobrescribint sobreescriure les dades de l'usuari...\n")
+            print("\nJa hi ha un usuari amb el mateix DNI, sobrescribint les dades de l'usuari...\n")
             dni[dni.index(dni_user)]=dni_user
             noms[dni.index(dni_user)]=input("Nom de l'usuari: ")
             cognoms[dni.index(dni_user)]=input("Cognoms de l'usuari: ")
