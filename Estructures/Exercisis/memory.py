@@ -9,7 +9,7 @@ def main():
     plantilla_lectura=open("plantilla.html","r")
     info=open("/proc/meminfo","r")
     plantilla_final=open("plantilla_final.html","w")
-    texto_final=remplazar_caracteres(plantilla_lectura,plantilla_final,info)
+    texto_final=remplazar_caracteres(plantilla_lectura,info)
     plantilla_final.write(texto_final)
     tancar_archius(plantilla_lectura,info,plantilla_final)
 
@@ -20,7 +20,7 @@ def tancar_archius(plantilla_lectura,info,plantilla_final):
     plantilla_final.close()
 
 
-def remplazar_caracteres(archivo,archivo_final,info):
+def remplazar_caracteres(archivo,info):
     texto=archivo.read()
     valors=info.readlines()
     MTotal=limpiar_info(valors[0])
