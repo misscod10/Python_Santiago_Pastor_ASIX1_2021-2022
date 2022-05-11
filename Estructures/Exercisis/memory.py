@@ -4,7 +4,6 @@
 __Author__="Santiago Pastor Serrano"
 __Email__="cf19santiago.pastor@iesjoandaustria.org"
 
-import html, doctest, os
 
 def main():
     plantilla_lectura=open("plantilla.html","r")
