@@ -4,6 +4,10 @@
 __Author__="Santiago Pastor Serrano"
 __Email__="cf19santiago.pastor@iesjoandaustria.org"
 
+"""
+Aquest programa agafa el contingut de l'archiu 'plantilla.html', substitueix els camps 'Mtotal''MDISP' i 'MLliure' per els seus valors en /proc/meminfo i escriu un archiu plantilla_final.html amb el contingut canviat.
+"""
+
 
 def main():
     plantilla_lectura=open("plantilla.html","r")
