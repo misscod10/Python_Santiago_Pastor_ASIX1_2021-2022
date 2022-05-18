@@ -12,7 +12,7 @@ Aquest programa agafa el contingut de l'archiu 'plantilla.html', substitueix els
 def main():
     plantilla_lectura=open("plantilla.html","r")
     info=open("/proc/meminfo","r")
-    plantilla_final=open("plantilla_final.html","w")
+    plantilla_final=open("memoria.html","w")
     texto_final=remplazar_caracteres(plantilla_lectura,info)
     plantilla_final.write(texto_final)
     tancar_archius(plantilla_lectura,info,plantilla_final)
@@ -42,9 +42,6 @@ def limpiar_info(info_a_limpiar):
     info_limpia=info_limpia.split(":")
     info_limpia=info_limpia[1]
     return info_limpia 
-
-
-
 
 
 if __name__=="__main__":
