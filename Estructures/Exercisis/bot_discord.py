@@ -6,6 +6,12 @@ __email__="cf19santiago.pastor@iesjoandaustria.org"
 
 import json, requests
 
+"""
+Aquest programa envia un missatge al server de discord quan detecta que l'equip utilitza més de la meitat de ram disponible.
+He reutilitzat tant la part del codi que envia el missatge a Discord com la part que agafa la memoria del /proc/meminfo de altres codis
+que he fet anteriorment.
+"""
+
 
 def main():
     info=open("/proc/meminfo","r")
