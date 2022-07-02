@@ -7,6 +7,8 @@ import os
 """
 Aquest programa et permet introduir una paraula i després fa que la adivinis.
 """
+
+
 def main():
     opcio=None
     while opcio!="0":
@@ -16,8 +18,11 @@ def main():
            paraula_secreta=entrar_paraula_secreta()
         if opcio ==  "2":
             endevinar_paraula(paraula_secreta)
+
+
 def mostrar_menu():
     print("0. Sortir de la aplicació \n1. Entrar paraula secreta\n2. Endevinar paraula secreta")
+
 
 def entrar_paraula_secreta():
     """
@@ -34,6 +39,7 @@ def entrar_paraula_secreta():
         else:
             print("La paraula ha de ser de, com a minim, 5 lletres!\nTorna a intentar-ho:\n")
     return paraula_secreta
+
 
 def endevinar_paraula(paraula_secreta):
     """
@@ -62,5 +68,7 @@ def endevinar_paraula(paraula_secreta):
                 print(f"Et queden {5-(a+1)} intents.\n")
         else:
             print("La paraula ha de ser de, com a minim, 5 lletres!\n")
+
+
 if __name__=="__main__":
     main()

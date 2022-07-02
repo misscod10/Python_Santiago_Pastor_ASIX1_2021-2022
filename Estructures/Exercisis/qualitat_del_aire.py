@@ -71,5 +71,6 @@ def main():
         if opcio != "0":
             dades=procesa_opcio(opcio,dades)
 
+
 if __name__ == "__main__":
     main()
